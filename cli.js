@@ -186,6 +186,43 @@ async function handleMCPRequest(request, mysqlTool) {
                 },
                 required: ['table']
               }
+            },
+            {
+              name: 'mysql_insert',
+              description: '⚠️ 警告：插入数据 - 使用者自负责任',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  table: { type: 'string', description: '表名' },
+                  data: { type: 'object', description: '要插入的数据对象' }
+                },
+                required: ['table', 'data']
+              }
+            },
+            {
+              name: 'mysql_update',
+              description: '⚠️ 警告：更新数据 - 使用者自负责任',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  table: { type: 'string', description: '表名' },
+                  data: { type: 'object', description: '要更新的数据对象' },
+                  where: { type: 'object', description: '更新条件' }
+                },
+                required: ['table', 'data']
+              }
+            },
+            {
+              name: 'mysql_delete',
+              description: '⚠️ 警告：删除数据 - 使用者自负责任',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  table: { type: 'string', description: '表名' },
+                  where: { type: 'object', description: '删除条件' }
+                },
+                required: ['table']
+              }
             }
           ]
         }
@@ -210,6 +247,15 @@ async function handleMCPRequest(request, mysqlTool) {
           break;
         case 'mysql_schema':
           result = await mysqlTool.getTableSchema(args.table);
+          break;
+        case 'mysql_insert':
+          result = await mysqlTool.insert(args.table, args.data);
+          break;
+        case 'mysql_update':
+          result = await mysqlTool.update(args.table, args.data, args.where || {});
+          break;
+        case 'mysql_delete':
+          result = await mysqlTool.delete(args.table, args.where || {});
           break;
         default:
           throw new Error(`未知工具: ${name}`);

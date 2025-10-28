@@ -100,6 +100,15 @@ await tool.disconnect();
 3. **mysql_schema** - 获取表结构
    - 参数：table（必需）
 
+4. **mysql_insert** - ⚠️ 警告：插入数据 - 使用者自负责任
+   - 参数：table（必需），data（必需）
+
+5. **mysql_update** - ⚠️ 警告：更新数据 - 使用者自负责任
+   - 参数：table（必需），data（必需），where（可选）
+
+6. **mysql_delete** - ⚠️ 警告：删除数据 - 使用者自负责任
+   - 参数：table（必需），where（可选）
+
 ## 开发
 
 ```bash
