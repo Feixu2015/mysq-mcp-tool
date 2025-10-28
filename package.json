@@ -1,0 +1,22 @@
+{
+  "name": "mysql-mcp-tool",
+  "version": "1.0.0",
+  "description": "MySQL数据库操作的MCP工具",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "mysql-mcp-tool": "./cli.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js",
+    "server": "node cli.js server"
+  },
+  "dependencies": {
+    "mysql2": "^3.6.5",
+    "commander": "^11.1.0"
+  },
+  "keywords": ["mysql", "mcp", "database"],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mysql": {
+      "command": "node",
+      "args": ["/Users/feixu/Downloads/toy1/cli.js", "server"],
+      "env": {
+        "MYSQL_HOST": "your mysql host",
+        "MYSQL_USER": "your mysql user",
+        "MYSQL_PASSWORD": "your mysql password",
+        "MYSQL_DATABASE": "your mysql database"
+      }
+    }
+  }
+}
